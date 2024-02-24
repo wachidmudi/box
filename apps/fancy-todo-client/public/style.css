@@ -1,0 +1,53 @@
+.btn-image {
+  padding: 0px;
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  right: 25px;
+}
+
+.btn-color {
+  padding: 0px;
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  right: 4px;
+}
+
+.btn-color img {
+  opacity: .5;
+}
+
+/* .btn-color:after {
+  color: #2e2e2e;
+  content: '\2807';
+  font-size: 15px;
+  width: 5px;
+} */
+
+.radio{
+  -webkit-appearance:button;
+  -moz-appearance:button;
+  appearance:button;
+  border:4px solid #ccc;
+  border-top-color:#bbb;
+  border-left-color:#bbb;
+  background:#fff;
+  width:25px;
+  height:25px;
+  border-radius:50%;
+}
+
+.radio:checked{
+  border:20px solid #4099ff;
+}
+
+/* Todo area */
+#next-todo,
+#progress-todo,
+#done-todo {
+  background-color: #f4f5f7;
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+}

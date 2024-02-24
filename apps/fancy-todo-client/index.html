@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="google-signin-client_id"
+      content="252860447837-n854n9t1e5bcbk30bhkk15ia5h6tlev0.apps.googleusercontent.com"
+    />
+
+    <link rel="icon" type="image/png" href="/logo.png">
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+    />
+    <link rel="stylesheet" href="./assets/color-picker/colorPick.css" />
+    <!-- The following line applies the dark theme -->
+    <!-- <link rel="stylesheet" href="./assets/color-picker/colorPick.dark.theme.css"> -->
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      .d-none {
+        display: none;
+      }
+    </style>
+
+    <title>Fancy Todo</title>
+  </head>
+
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-light"
+      style="background-color: #e3f2fd"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <strong class="text-dark"> Fancy Todo </strong>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <!-- <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li> -->
+          </ul>
+          <button id="logout" class="btn btn-outline-danger d-none" onclick="logout()">
+            Logout
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <section id="main-page" class="container-fluid">
+      <div class="row">
+        <div class="col-5">
+          <div class="mt-5">
+            <h1 class="text-center mt-5">Fancy Todo App</h1>
+            <p class="lead text-center">
+              Organize all your todo here!! Sign Up for FREE
+            </p>
+            <img
+              class="d-block mx-auto"
+              src="./assets/images/illus_choice.svg"
+              alt="cover"
+              style="margin-top: 5rem"
+            />
+          </div>
+        </div>
+        <div class="col-7">
+          <div id="login-register">
+            <div class="container mt-5">
+              <div class="row justify-content-center">
+                <div class="col-11">
+                  <nav
+                    class="nav nav-pills flex-column flex-sm-row bg-white border shadow"
+                    role="tablist"
+                  >
+                    <a
+                      class="flex-sm-fill text-sm-center nav-link p-3 active"
+                      href="#pills-login"
+                      data-toggle="pill"
+                    >
+                      <strong> Login </strong>
+                    </a>
+                    <a
+                      class="flex-sm-fill text-sm-center nav-link p-3"
+                      href="#pills-register"
+                      data-toggle="pill"
+                    >
+                      <strong> Register </strong>
+                    </a>
+                  </nav>
+                </div>
+              </div>
+            </div>
+            <div class="tab-content" id="pills-tabContent">
+              <div
+                class="tab-pane fade show active"
+                id="pills-login"
+                role="tabpanel"
+                aria-labelledby="pills-home-tab"
+              >
+                <section id="login" class="container">
+                  <div class="row justify-content-center">
+                    <div class="col-9">
+                      <div class="card p-5 shadow">
+                        <h2 class="text-center">Login</h2>
+                        <form onsubmit="login(event)" method="POST">
+                          <div class="form-group">
+                            <label for="loginEmail">Email address</label>
+                            <input
+                              type="email"
+                              name="email"
+                              class="form-control"
+                              id="loginEmail"
+                              aria-describedby="emailHelp"
+                              required
+                              placeholder="Enter your email address"
+                            />
+                          </div>
+                          <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input
+                              type="password"
+                              name="password"
+                              class="form-control"
+                              id="loginPassword"
+                              required
+                              placeholder="Enter your password"
+                            />
+                          </div>
+                          <button
+                            id="submit"
+                            type="submit"
+                            class="btn btn-primary btn-block"
+                          >
+                            Submit
+                          </button>
+                          <div class="py-3">
+                            <div
+                              class="g-signin2"
+                              data-onsuccess="onSignIn"
+                              style="height:36px; width:120px; background-color: whitesmoke;"
+                            ></div>
+                          </div>
+                          <span class="card-subtitle"
+                            >Don't have an account? Register
+                            <button
+                              type="button"
+                              class="btn btn-link p-0"
+                              onclick="goToRegister()"
+                            >
+                              here
+                            </button></span
+                          >
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="pills-register"
+                role="tabpanel"
+                aria-labelledby="pills-profile-tab"
+              >
+                <section id="register" class="container">
+                  <div class="row justify-content-center">
+                    <div class="col-9">
+                      <div class="card p-5 shadow">
+                        <h2 class="text-center">Register</h2>
+                        <form onsubmit="register(event)" method="POST">
+                          <div class="form-group">
+                            <label for="registerName">Name</label>
+                            <input
+                              type="text"
+                              name="name"
+                              class="form-control"
+                              id="registerName"
+                              placeholder="Enter your name"
+                            />
+                          </div>
+                          <div class="form-group">
+                            <label for="registerEmail">Email address</label>
+                            <input
+                              type="email"
+                              name="email"
+                              class="form-control"
+                              id="registerEmail"
+                              required
+                              placeholder="Enter your email address"
+                            />
+                            <small id="emailHelp" class="form-text text-muted"
+                              >We'll never share your email with anyone
+                              else.</small
+                            >
+                          </div>
+                          <div class="form-group">
+                            <label for="registerPassword">Password</label>
+                            <input
+                              type="password"
+                              name="password"
+                              class="form-control"
+                              id="registerPassword"
+                              required
+                              placeholder="Enter your password"
+                            />
+                          </div>
+                          <button
+                            id="submit"
+                            type="submit"
+                            class="btn btn-primary btn-block"
+                          >
+                            Submit
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="list-todos" class="container mt-3 d-none">
+      <div class="container my-2 text-right">
+        <button
+          data-toggle="modal"
+          data-target="#modalAddTodo"
+          class="btn btn-lg btn-primary"
+        >
+          Add Todo
+        </button>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <h3>Next</h3>
+          <div id="next-todo"></div>
+        </div>
+        <div class="col-4">
+          <h3>Progress</h3>
+          <div id="progress-todo"></div>
+        </div>
+        <div class="col-4">
+          <h3>Done</h3>
+          <div id="done-todo"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Add Todo -->
+    <div
+      class="modal fade d-none"
+      id="modalAddTodo"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="modalAddTodoLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="col-10 modal-title text-center" id="modalAddTodoLabel">
+              Add Todo
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <section id="add-todo" class="p-3">
+              <form onsubmit="addTodo(event)" method="POST">
+                <div class="form-group">
+                  <label for="addTitle">Title</label>
+                  <input
+                    type="text"
+                    name="title"
+                    class="form-control"
+                    id="addTitle"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="addDescription">Description</label>
+                  <textarea
+                    name="description"
+                    class="form-control"
+                    id="addDescription"
+                    rows="3"
+                  ></textarea>
+                </div>
+                <div class="form-group mb-2">
+                  <label for="addStatus">Status</label>
+                  <select name="status" class="custom-select" id="addStatus">
+                    <option disabled selected>Select status</option>
+                    <option value="next">Next</option>
+                    <option value="progress">Progress</option>
+                    <option value="done">Done</option>
+                  </select>
+                </div>
+                <div class="form-group mb-4">
+                  <label for="addDueDate">Due Date</label>
+                  <input
+                    type="date"
+                    name="due_date"
+                    class="form-control"
+                    id="addDueDate"
+                    required
+                  />
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-block mt-2 mb-4"
+                >
+                  Submit
+                </button>
+              </form>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Update Todo -->
+    <div
+      class="modal fade d-none"
+      id="modalUpdateTodo"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="modalUpdateTodoLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5
+              class="col-10 modal-title text-center"
+              id="modalUpdateTodoLabel"
+            >
+              Update Todo
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <section id="add-todo" class="p-3">
+              <form onsubmit="updateTodo(event)" method="POST">
+                <input type="hidden" id="todoId" />
+                <div class="form-group">
+                  <label for="updateTitle">Title</label>
+                  <input
+                    type="text"
+                    name="title"
+                    class="form-control"
+                    id="updateTitle"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="updateDescription">Description</label>
+                  <textarea
+                    name="description"
+                    class="form-control"
+                    id="updateDescription"
+                    rows="3"
+                  ></textarea>
+                </div>
+                <div class="form-group mb-2">
+                  <label for="updateStatus">Status</label>
+                  <select name="status" class="custom-select" id="updateStatus">
+                    <option disabled selected>Select status</option>
+                    <option value="next">Next</option>
+                    <option value="progress">Progress</option>
+                    <option value="done">Done</option>
+                  </select>
+                </div>
+                <div class="form-group mb-4">
+                  <label for="updateDueDate">Due Date</label>
+                  <input
+                    type="date"
+                    name="due_date"
+                    class="form-control"
+                    id="updateDueDate"
+                    required
+                  />
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-block mt-2 mb-4"
+                >
+                  Update
+                </button>
+              </form>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Add Image -->
+    <div
+      class="modal fade d-none"
+      id="modalAddImage"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="modalAddImageLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="col-10 modal-title text-center" id="modalAddImageLabel">
+              Add Image
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <section id="add-todo" class="p-3">
+              <form onsubmit="addImage(event)" method="POST">
+                <div class="input-group mb-3">
+                  <input
+                    id="search-input"
+                    type="text"
+                    class="form-control"
+                    placeholder="Search for images"
+                    aria-label="Search images"
+                  />
+                  <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary">
+                      Search
+                    </button>
+                  </div>
+                </div>
+              </form>
+              <section id="images">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-4 mx-auto">
+                      <svg
+                        width="150"
+                        height="150"
+                        viewBox="0 0 32 32"
+                        fill="#777777"
+                      >
+                        <g>
+                          <path
+                            d="M 17.228,11.688A2.782,2.782 1080 1 0 22.792,11.688A2.782,2.782 1080 1 0 17.228,11.688zM 26,28L 28,28L 28,26L 28,22L 28,16L 20,22L 10,14L 4,20L 4,22L 4,26L 4,28L 6,28 zM 30,4L 2,4 C 0.896,4,0,4.896,0,6l0,24 c0,1.104, 0.896,2, 2,2l 28,0 c 1.104,0, 2-0.896, 2-2L 32,6 C 32,4.896, 31.104,4, 30,4z M 30,30L 2,30 L 2,6 l 28,0 L 30,30 z"
+                          ></path>
+                        </g>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input hidden to store id todo -->
+    <input id="todo-id" type="hidden" />
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"
+      type="text/javascript"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="./assets/color-picker/colorPick.min.js"></script>
+    <script type="module" src="src/main.ts"></script>
+  </body>
+</html>

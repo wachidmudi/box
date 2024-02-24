@@ -1,0 +1,23 @@
+{
+  "name": "fancy-todo-client",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/bootstrap": "^5.2.10",
+    "@types/gapi.auth2": "^0.0.60",
+    "@types/jquery": "^3.5.29",
+    "@types/jqueryui": "^1.12.21",
+    "@types/toastr": "^2.1.43",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.0"
+  },
+  "dependencies": {
+    "sweetalert2": "^11.10.5"
+  }
+}

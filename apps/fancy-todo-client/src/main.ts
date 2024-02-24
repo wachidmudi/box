@@ -41,7 +41,7 @@ $(appInit);
 // We use global Swal instead of local import
 declare var Swal: typeof import('sweetalert2').default;
 
-const baseUrl = 'http://localhost:3000';
+const baseUrl = process.env.VITE_API_URL || 'http://localhost:3000';
 const usersUrl = baseUrl + '/users';
 const todosUrl = baseUrl + '/todos';
 

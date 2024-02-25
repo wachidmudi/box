@@ -13,11 +13,11 @@ function appInit() {
     newestOnTop: true,
     progressBar: true,
     positionClass: 'toast-top-right',
-    preventDuplicates: false,
+    preventDuplicates: true,
     onclick: undefined,
     showDuration: 300,
     hideDuration: 1_000,
-    timeOut: 3_000,
+    timeOut: 5_000,
     extendedTimeOut: 1_000,
     showEasing: 'swing',
     hideEasing: 'linear',
@@ -102,10 +102,13 @@ function createBtn(el: HTMLButtonElement, title: string) {
 
 function login(e: SubmitEvent) {
   e.preventDefault();
-  const { email, password, submit } = (e.target as HTMLFormElement)
-    .elements as HTMLFormControlsCollection;
+  const { email, password, loginSubmit } = (e.target as HTMLFormElement)
+    .elements;
 
-  const submitBtn = createBtn(submit as HTMLButtonElement, 'Logging in...');
+  const submitBtn = createBtn(
+    loginSubmit as HTMLButtonElement,
+    'Logging in...'
+  );
 
   submitBtn.setLoading(true);
 
@@ -120,7 +123,7 @@ function login(e: SubmitEvent) {
     })
     .fail(err => {
       console.log('err', err.responseJSON?.errors);
-      toastr.error('Login Failed!', err.responseJSON?.errors.join(','));
+      toastr.error(err.responseJSON?.errors.join(','), 'Login Failed!');
     })
     .always(() => {
       submitBtn.setLoading(false);
@@ -130,10 +133,14 @@ function login(e: SubmitEvent) {
 
 function register(e: SubmitEvent) {
   e.preventDefault();
-  const { name, email, password, submit } = (e.target as HTMLFormElement)
-    .elements as HTMLFormControlsCollection;
+  const { name, email, password, registerSubmit } = (
+    e.target as HTMLFormElement
+  ).elements as HTMLFormControlsCollection;
 
-  const submitBtn = createBtn(submit as HTMLButtonElement, 'Logging in...');
+  const submitBtn = createBtn(
+    registerSubmit as HTMLButtonElement,
+    'Registering...'
+  );
 
   submitBtn.setLoading(true);
 
@@ -156,7 +163,7 @@ function register(e: SubmitEvent) {
     })
     .fail(err => {
       console.log('err', err.responseJSON?.errors);
-      toastr.error('Register Failed!', err.responseJSON?.errors.join(','));
+      toastr.error(err.responseJSON?.errors.join(','), 'Register Failed!');
     })
     .always(() => {
       submitBtn.setLoading(false);

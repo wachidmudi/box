@@ -23,9 +23,9 @@ This Turborepo includes the following packages/apps:
 
 ### Apps and Packages
 
-- `docs`: a [Next.js](https://nextjs.org/) app
 - `web`: another [Next.js](https://nextjs.org/) app
-- `fancy-todo-client`: Fancy Todo, an SPA build with jQuery, Bootstrap css & TypeScript ([see](https://github.com/REPO/apps/fancy-todo-client/readme.md))
+- `fancy-todo-client`: Fancy Todo, an SPA build with jQuery, Bootstrap css & TypeScript ([see](https://github.com/REPO/apps/fancy-todo-client/README.md))
+- `fancy-todo-server`: Fancy Todo, an API Server build with Express, Sequelize, Postgres & TypeScript ([see](https://github.com/REPO/apps/fancy-todo-server/README.md))
 - `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
 - `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo

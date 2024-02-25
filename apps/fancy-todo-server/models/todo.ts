@@ -29,6 +29,7 @@ export interface TodoInstance
 const Todo = db.sequelize.define<TodoInstance>('Todo', {
   id: {
     primaryKey: true,
+    autoIncrement: true,
     type: DataTypes.INTEGER,
   },
   title: {

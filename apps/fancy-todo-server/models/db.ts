@@ -14,6 +14,8 @@ const sequelize = new Sequelize.Sequelize(
   }
 );
 
+// sequelize.sync({ force: true });
+
 const db = {
   sequelize,
   Sequelize,

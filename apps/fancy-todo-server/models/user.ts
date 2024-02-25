@@ -24,6 +24,7 @@ const User = db.sequelize.define<UserInstance>(
   {
     id: {
       primaryKey: true,
+      autoIncrement: true,
       type: DataTypes.INTEGER,
     },
     name: DataTypes.STRING,

@@ -84,7 +84,7 @@ function appendHeadScriptsAtBody() {
       const appendScriptsIntoHtmlEndBodyTag = ({ htmlResult, scripts }) =>
         htmlResult.replace('</body>', `\t\t${scripts}\n\t</body>`);
 
-      if (ctx.chunk.isEntry) {
+      if (ctx.chunk?.isEntry) {
         let { htmlHead, htmlResultWithBodyTagsOnly } =
           extractHeadTagsFromHtml(html);
 

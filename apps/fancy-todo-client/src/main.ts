@@ -41,7 +41,7 @@ $(appInit);
 // We use global Swal instead of local import
 declare var Swal: typeof import('sweetalert2').default;
 
-const baseUrl = process.env.VITE_API_URL || 'http://localhost:3000';
+const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 const usersUrl = baseUrl + '/users';
 const todosUrl = baseUrl + '/todos';
 
@@ -102,7 +102,8 @@ function createBtn(el: HTMLButtonElement, title: string) {
 
 function login(e: SubmitEvent) {
   e.preventDefault();
-  const { email, password, submit } = (e.target as HTMLFormElement).elements;
+  const { email, password, submit } = (e.target as HTMLFormElement)
+    .elements as HTMLFormControlsCollection;
 
   const submitBtn = createBtn(submit as HTMLButtonElement, 'Logging in...');
 
@@ -130,7 +131,7 @@ function login(e: SubmitEvent) {
 function register(e: SubmitEvent) {
   e.preventDefault();
   const { name, email, password, submit } = (e.target as HTMLFormElement)
-    .elements;
+    .elements as HTMLFormControlsCollection;
 
   const submitBtn = createBtn(submit as HTMLButtonElement, 'Logging in...');
 

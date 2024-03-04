@@ -1,0 +1,105 @@
+html,
+body,
+#app,
+.main,
+.main > .row {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+body {
+  background-color: #fafafa;
+  color: #212529;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: left;
+  margin: 0;
+}
+
+.main-header {
+  height: 50px;
+  border-bottom: 2px solid #eff4fd;
+}
+
+.avatar {
+  border-radius: 50%;
+  font-weight: 600;
+  width: 35px;
+  height: 35px;
+}
+
+.kanban-container {
+  background-color: #f8fbff;
+  max-height: 96%;
+  overflow: hidden;
+}
+
+.kanban-content {
+  background-color: #f0f6fe;
+  border-radius: 12px;
+}
+
+.card {
+  border-radius: 8px !important;
+}
+
+.dot-menu {
+  opacity: .5;
+}
+
+.tag {
+  background-color: transparent;
+  border-radius: 6px;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  padding: 3px 7px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.tag-add {
+  color: #326be4;
+  border: thin dashed #326be4;
+  margin: 0;
+}
+
+.tag-primary {
+  color: #326be4;
+  background-color: #e8eefc;
+}
+
+.tag-info {
+  color: #917bfc;
+  background-color: #f8f0ff;
+}
+
+.tag-warning {
+  color: #fc9b3c;
+  background-color: #ffead6;
+}
+
+.tag-success {
+  color: #4dc081;
+  background-color: #e2fcf5;
+}
+
+.tag-danger {
+  color: #f99595;
+  background-color: #fef0f0;
+}
+
+.btn-task-menu {
+  position: absolute;
+  right: 0;
+}
+
+.btn-task-menu > button:after {
+  content: '\2807';
+  font-size: 20px;
+  opacity: .5;
+}
+

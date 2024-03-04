@@ -77,7 +77,7 @@ type Images = {
  * @see https://stackoverflow.com/a/76605803
  */
 interface HTMLFormControlsCollection extends HTMLCollectionBase {
-  [item: string]: HTMLInputElement | RadioNodeList | HTMLButtonElement;
+  [item: string]: HTMLInputElement | RadioNodeList;
 }
 
 /**
@@ -717,3 +717,27 @@ function hex2rgb(c) {
   return 'rgb(' + r + ',' + g + ',' + b + ')';
 }
 */
+
+declare var jwt_decode: typeof import('jwt-decode').jwtDecode;
+type CredentialResponse = import('../types/google-account').CredentialResponse;
+type JwtResponse = import('jwt-decode').JwtPayload & {
+  hd: string; // If present, the host domain of the user's GSuite email address
+  email: string; // The user's email address
+  email_verified: boolean; // true, if Google has verified the email address
+  azp: string;
+  name: string;
+  picture: string; // If present, a URL to user's profile picture
+  given_name: string;
+  family_name: string;
+};
+
+function handleCredentialResponse(response: CredentialResponse) {
+  const responsePayload = jwt_decode<JwtResponse>(response.credential);
+
+  console.log('ID: ' + responsePayload.sub);
+  console.log('Full Name: ' + responsePayload.name);
+  console.log('Given Name: ' + responsePayload.given_name);
+  console.log('Family Name: ' + responsePayload.family_name);
+  console.log('Image URL: ' + responsePayload.picture);
+  console.log('Email: ' + responsePayload.email);
+}

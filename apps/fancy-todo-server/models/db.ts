@@ -1,5 +1,5 @@
 import Sequelize, { Options } from 'sequelize';
-import baseConfig from '../config/config.json';
+import baseConfig from '../config/config';
 
 const env = (process.env.NODE_ENV as keyof typeof baseConfig) || 'development';
 const config = baseConfig[env] as Required<Options>;

@@ -2,11 +2,16 @@
   "name": "server",
   "version": "1.0.0",
   "description": "fancy-todo server",
+  "private": true,
   "main": "app.ts",
+  "type": "module",
   "scripts": {
-    "dev": "nodemon app.ts",
-    "build": "npx tsc",
-    "start": "node dist/app.js"
+    "dev": "bun --watch app.ts",
+    "build": "rm -rf ./dist && npx tsc",
+    "start": "node dist/app.js",
+    "serve:prod": "NODE_ENV=production node ./dist/app.js",
+    "db:migrate:prod": "sequelize-cli db:migrate --env=production",
+    "db:seed:prod": "sequelize-cli db:seed:all --env=production"
   },
   "keywords": [],
   "author": "",
@@ -28,9 +33,7 @@
     "@types/jsonwebtoken": "^9.0.5",
     "@types/sequelize": "^4.28.20",
     "dotenv": "^8.2.0",
-    "nodemon": "^3.1.0",
     "sequelize-cli": "^6.2.0",
-    "ts-node-dev": "^2.0.0",
     "typescript": "^5.3.3"
   }
 }

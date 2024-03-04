@@ -17,5 +17,5 @@ app.use(routes);
 app.use(errorHandler);
 
 app.listen(PORT, () => {
-  console.log('App listing port', PORT);
+  console.log(`Fancy Todo App Server is running on http://localhost:${PORT}`);
 });

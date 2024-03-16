@@ -1,0 +1,81 @@
+html,
+body,
+#app,
+.home {
+  min-height: 100vh;
+  height: auto;
+}
+
+#app {
+  background-color: #E8EDF6;
+}
+
+.auto-height {
+  min-height: 100vh;
+  height: 100%;
+}
+
+.box {
+  color: #ffffff;
+  cursor: pointer;
+  height: 225px;
+  border-radius: 15px;
+  padding: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.box-purple {
+  background-image: linear-gradient(#745ac1, #b973eb);
+}
+
+.box-tomato {
+  background-image: linear-gradient(#ed593e, #f9ad80);
+}
+
+.box i {
+  color: rgba(000, 000, 000, .05);
+  font-size: 160px;
+  position: absolute;
+  left: -20px;
+  bottom: -15px;
+}
+
+.custom-select {
+  border-radius: 5px;
+  background-image: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: bold;
+}
+
+i.material-icons-outlined.select-icon {
+  float: right;
+  margin-top: -33px;
+  margin-right: 5px;
+  /* this is so when you click on the chevron, your click actually goes on the dropdown menu */
+  pointer-events: none;
+  /* everything after this is just to cover up the original arrow */
+  /* (for browsers that don't support the syntax used above) */
+  background-color: #fff;
+  padding-right: 5px;
+}
+
+.menu-more {
+  font-size: 35px;
+}
+
+/* Utils */
+.radius-10 {
+  border-radius: 10px !important;
+}
+
+.radius-25 {
+  border-radius: 25px !important;
+}
+
+hr {
+  background: linear-gradient(to right, #3f51b5, transparent);
+  border-radius: 3px;
+  height: 1px;
+}

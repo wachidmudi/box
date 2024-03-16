@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "fancy-todo-server",
   "version": "1.0.0",
   "description": "fancy-todo server",
   "private": true,

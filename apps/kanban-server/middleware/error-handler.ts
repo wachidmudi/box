@@ -16,8 +16,8 @@ export function errorHandler(
 
   switch (err.name) {
     case 'JsonWebTokenError':
-    case 'AuthenticationFailed':
-      errors.push('Authentication failed');
+    case 'AuthenticationError':
+      errors.push(err?.message || 'Authentication failed');
       statusCode = 401;
       break;
     case 'SequelizeValidationError':

@@ -27,7 +27,7 @@ export async function authentication(
     });
 
     if (!user) {
-      throw { name: 'AuthenticationFailed' };
+      throw new AuthenticationError('Invalid user credentials');
     }
 
     // attach decoded object data into req.userData
@@ -59,7 +59,7 @@ export async function authorization(
         return next();
       }
 
-      throw { name: 'AuthenticationFailed' };
+      throw new AuthenticationError('User not authorized');
     })
     .catch(next);
 }
@@ -73,7 +73,7 @@ export async function authRole(
     const { userRole } = req;
 
     if (userRole != 'admin') {
-      throw { msg: "Don't have access", statusCode: 401 };
+      throw new AuthenticationError("User doesn't have permission");
     }
 
     next();

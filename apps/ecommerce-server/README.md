@@ -1,4 +1,4 @@
-# ecommerce_server
+# E-Commerce Server
 
 Pada challenge kali ini, kamu diwajibkan menggunakan metode Test Driven Development (TDD) untuk membuat backend. 
 
@@ -10,5 +10,9 @@ Kamu akan membuat CMS untuk e-commerce site dengan skema sebagai berikut:
     - stock 
 
 Buatlah requirement terlebih dahulu dalam bentuk test file menggunakan Jest 
-sebelum memulai coding. 
-Pikirkan juga common sense-nya untuk membuat validasi, misalkan price tidak boleh negatif, name harus diisi dan lain sebagainya. 
+sebelum memulai coding.   
+Pikirkan juga common sense-nya untuk membuat validasi, misalkan price tidak boleh negatif, name harus diisi dan lain sebagainya.   
+
+## RESTful endpoints
+
+**Base URL**: [glitch](https://rounded-sore-centaur.glitch.me)

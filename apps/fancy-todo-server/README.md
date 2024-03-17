@@ -6,6 +6,9 @@ Fancy Todo App is an application to manage your todos. This app has :
 &nbsp;
 
 ## RESTful endpoints
+
+**Base URL**: [glitch](https://fuzzy-keen-astronaut.glitch.me)
+
 ### GET /todos
 
 > Get all todos

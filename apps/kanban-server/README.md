@@ -6,6 +6,9 @@ Kanban App is an application to manage your tasks. This app has :
 &nbsp;
 
 ## RESTful endpoints
+
+**Base URL**: [glitch](https://abstracted-harsh-cobalt.glitch.me)
+
 ### GET /tasks
 
 > Get all tasks

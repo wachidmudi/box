@@ -56,6 +56,33 @@ cd my-turborepo
 yarn dev
 ```
 
+### Publish to Glitch
+Create a ZIP file of the files or folders you want   
+Upload it to the assets folder in your project, click it and click `Copy Url`   
+Navigate to `Settings` > `Advance Options` > `Open Console` in your project or click `Terminal` on bottom bar   
+
+In the console, first we want to pull the zip file from the url   
+```sh
+$ wget -O file.zip https:///url-to-your-zip
+```
+
+Then we want to extract it to the current directory
+```sh
+$ unzip file.zip -d .
+```
+
+Then we want to remove the zip file
+```sh
+$ rm file.zip
+```
+
+Finally we want to refresh our app so the new files are shown in the editor
+```sh
+$ refresh
+```
+
+*Source:* [link](https://support.glitch.com/t/uploading-a-whole-folder/3128/4)
+
 ### Tested Environment
 ```
 Operating System:

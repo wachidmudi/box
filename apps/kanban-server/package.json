@@ -6,7 +6,7 @@
   "main": "./dist/app.js",
   "scripts": {
     "dev": "bun --watch app.ts",
-    "build": "rm -rf ./dist && npx tsc",
+    "build": "rm -rf ./dist && npx tsc --project tsconfig.prod.json",
     "start": "node dist/app.js",
     "serve:prod": "NODE_ENV=production node ./dist/app.js",
     "db:migrate:prod": "sequelize-cli db:migrate --env=production",

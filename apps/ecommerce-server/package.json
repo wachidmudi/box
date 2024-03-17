@@ -6,7 +6,7 @@
   "main": "./dist/bin/http.js",
   "scripts": {
     "dev": "bun --watch ./bin/http.ts",
-    "build": "rm -rf ./dist && npx tsc",
+    "build": "rm -rf ./dist && npx tsc --project tsconfig.prod.json",
     "start": "node ./dist/bin/http.js",
     "serve:prod": "NODE_ENV=production node ./dist/bin/http.js",
     "db:migrate:test": "sequelize-cli db:migrate --env=test",

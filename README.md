@@ -38,23 +38,36 @@ This Turborepo includes the following packages/apps:
 
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-yarn build
-```
 
 ### Develop
 
 To develop all apps and packages, run the following command:
 
 ```
-cd my-turborepo
 yarn dev
 ```
+
+To develop fancy-todo app, run the following command:
+
+```
+yarn dev:fancy-todo
+```
+
+To develop kanban app, run the following command:
+
+```
+yarn dev:kanban
+```
+
+To develop e-commerce app, run the following command:
+
+```
+yarn dev:ecommerce
+```
+
+### Build
+
+TODO
 
 ### Publish to Glitch
 Create a ZIP file of the files or folders you want   

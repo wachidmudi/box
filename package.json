@@ -6,6 +6,7 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "dev:fancy-todo": "turbo dev --filter=fancy-todo-server --filter=fancy-todo-client",
     "dev:kanban": "turbo dev --filter=kanban-server --filter=kanban-client",
     "dev:ecommerce": "turbo dev --filter=e-commerce-server --filter=e-commerce-client-admin --filter=e-commerce-client-customer"
   },

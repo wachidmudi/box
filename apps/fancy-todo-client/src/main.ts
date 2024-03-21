@@ -73,11 +73,8 @@ type Images = {
   };
 }[];
 
-/**
- * @see https://stackoverflow.com/a/76605803
- */
-interface HTMLFormControlsCollection extends HTMLCollectionBase {
-  [item: string]: HTMLInputElement | RadioNodeList;
+interface HTMLFormTarget extends EventTarget {
+  elements: Record<string, HTMLInputElement>;
 }
 
 /**
@@ -102,7 +99,7 @@ function createBtn(el: HTMLButtonElement, title: string) {
 
 function login(e: SubmitEvent) {
   e.preventDefault();
-  const { email, password, loginSubmit } = (e.target as HTMLFormElement)
+  const { email, password, loginSubmit } = (e.target as HTMLFormTarget)
     .elements;
 
   const submitBtn = createBtn(
@@ -133,9 +130,8 @@ function login(e: SubmitEvent) {
 
 function register(e: SubmitEvent) {
   e.preventDefault();
-  const { name, email, password, registerSubmit } = (
-    e.target as HTMLFormElement
-  ).elements as HTMLFormControlsCollection;
+  const { name, email, password, registerSubmit } = (e.target as HTMLFormTarget)
+    .elements;
 
   const submitBtn = createBtn(
     registerSubmit as HTMLButtonElement,
@@ -580,8 +576,6 @@ function updateStatus(id: string, status: string) {
     });
 }
 
-type GoogleUser = ReturnType<gapi.auth2.GoogleAuth['currentUser']['get']>;
-
 /**
  * Utils
  */
@@ -718,6 +712,7 @@ function hex2rgb(c) {
 }
 */
 
+/**
 declare var jwt_decode: typeof import('jwt-decode').jwtDecode;
 type CredentialResponse = import('../types/google-account').CredentialResponse;
 type JwtResponse = import('jwt-decode').JwtPayload & {
@@ -741,3 +736,4 @@ function handleCredentialResponse(response: CredentialResponse) {
   console.log('Image URL: ' + responsePayload.picture);
   console.log('Email: ' + responsePayload.email);
 }
+ */

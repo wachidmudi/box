@@ -13,6 +13,7 @@
     "@types/gapi.auth2": "^0.0.60",
     "@types/jquery": "^3.5.29",
     "@types/jqueryui": "^1.12.21",
+    "@types/jwt-decode": "^3.1.0",
     "@types/toastr": "^2.1.43",
     "typescript": "^5.3.3",
     "vite": "^5.1.0"

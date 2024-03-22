@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import CartCard from '@/components/CartCard'
+import CartCard from '@/components/CartCard.vue'
 import { formatIDR } from '@/helpers/formatter'
 
 export default {

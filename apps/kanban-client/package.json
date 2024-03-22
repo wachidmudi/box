@@ -2,6 +2,7 @@
   "name": "kanban-client",
   "version": "0.0.0",
   "private": true,
+  "homepage": "https://kanban-board-app.surge.sh",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
